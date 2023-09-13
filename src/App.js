@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
-
-//components
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from "react-router-dom";
+
+
+
+
+//components
 
 //.................................................................................................................................
 const App = () => {
@@ -25,11 +34,18 @@ const App = () => {
 
 //.................................................................................................................................
   return (
-    <>
-     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-     <TextForm heading="TextUtils - Modify Your Text :"  mode={mode} />
-   </> 
-  );
+  <BrowserRouter>
+    <Routes>
+
+      <Route path="/" 
+        element = {<>
+          <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
+          <TextForm heading="TextUtils - Modify Your Text :"  mode={mode} />
+      </>}/>      
+
+    </Routes>
+   </BrowserRouter>
+  )
 };
 //.................................................................................................................................
 

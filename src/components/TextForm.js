@@ -101,7 +101,7 @@ export default function TextForm(props) {
         		<textarea className={`form-control p-3 bg-${props.mode} text-${props.mode==="light"?"dark":"light"}`} id="myBox" rows="7" value={text} onClick={Renamecopy} onChange={handleOnChange} placeholder="Enter your text here......."></textarea>
         	</div>
 			
-			<div className="container p-0 d-flex flex-wrap`arr1">
+			<div className="container p-0 d-flex flex-wrap arr1">
       			<button className="btn btn-primary m-2" id="uppercase" onClick={handleUpClick}>Uppercase</button>
       			<button className="btn btn-primary m-2" id="lowercase" onClick={handleUpClick}>Lowercase</button>
       			<button className="btn btn-primary m-2" id="replace" onClick={handleReplace}>Replace</button>
@@ -112,7 +112,7 @@ export default function TextForm(props) {
 			  </div>
 			<div className="container p-0">
       			<button className="btn btn-danger m-2" id="clear" onClick={handleClearClick}>Clear</button>
-				<button className="btn btn-warning m-2" id="speak" onClick={speak}>Speak</button>
+				<button className="btn btn-success	 m-2" id="speak" onClick={speak}>Speak</button>
 			</div>
 
     	</div>
@@ -120,11 +120,13 @@ export default function TextForm(props) {
 		<div className="container">
 			<h3 className="m-10">Text Summary</h3>
 			<p className="m-3 "> 
-				<b>{">"}</b> {text.split(/[ ]+/).length-1} words.
-				<br></br> 
 				<b>{">"}</b> {text.replace(/\s/g, '').length} characters.
+				<br></br> 
+				<b>{">"}</b> {text.split(/[ ]+/).length-1} words.
 				<br></br>
 				<b>{">"}</b> {newSymbolCount} sentences.
+				<br></br>
+				<b>{">"}</b> {text.toString().replaceAll(/\s/g,'+').split('+').length-1} spaces.  
 			</p> 
 		</div>
 		</>
